@@ -1,4 +1,4 @@
-package com.example.quizmelikeyoumeanit
+package com.example.quizmelikeyoumeanit.dashboard
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
