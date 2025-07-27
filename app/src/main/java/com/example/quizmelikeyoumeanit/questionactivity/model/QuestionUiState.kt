@@ -1,4 +1,4 @@
-package com.example.quizmelikeyoumeanit.question.model
+package com.example.quizmelikeyoumeanit.questionactivity.model
 
 data class QuestionUiState(
     val questions: List<QuestionModel>,

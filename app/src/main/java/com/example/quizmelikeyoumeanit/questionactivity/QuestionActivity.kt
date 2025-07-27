@@ -1,16 +1,12 @@
-package com.example.quizmelikeyoumeanit.question
+package com.example.quizmelikeyoumeanit.questionactivity
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.quizmelikeyoumeanit.R
-import com.example.quizmelikeyoumeanit.question.model.QuestionModel
+import com.example.quizmelikeyoumeanit.questionactivity.model.QuestionModel
 
 class QuestionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

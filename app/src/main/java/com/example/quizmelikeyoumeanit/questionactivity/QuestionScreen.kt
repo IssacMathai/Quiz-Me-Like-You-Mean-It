@@ -1,4 +1,4 @@
-package com.example.quizmelikeyoumeanit.question
+package com.example.quizmelikeyoumeanit.questionactivity
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -35,9 +35,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.quizmelikeyoumeanit.R
-import com.example.quizmelikeyoumeanit.question.components.AnswerItem
-import com.example.quizmelikeyoumeanit.question.model.QuestionModel
-import com.example.quizmelikeyoumeanit.question.model.QuestionUiState
+import com.example.quizmelikeyoumeanit.questionactivity.components.AnswerItem
+import com.example.quizmelikeyoumeanit.questionactivity.model.QuestionModel
+import com.example.quizmelikeyoumeanit.questionactivity.model.QuestionUiState
 
 @Composable
 fun QuestionScreen(
@@ -120,7 +120,7 @@ fun QuestionScreen(
                             onFinish(state.score)
                         } else {
                             selectedAnswer = null
-                            state = state.copy(currentIndex = state.currentIndex - 1)
+                            state = state.copy(currentIndex = state.currentIndex + 1)
                         }
                     }
                 ) {

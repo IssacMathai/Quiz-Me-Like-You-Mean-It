@@ -1,4 +1,4 @@
-package com.example.quizmelikeyoumeanit.question.model
+package com.example.quizmelikeyoumeanit.questionactivity.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
