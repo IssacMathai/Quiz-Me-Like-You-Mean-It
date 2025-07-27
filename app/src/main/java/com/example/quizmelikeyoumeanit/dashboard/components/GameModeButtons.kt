@@ -50,7 +50,8 @@ fun GameModeButtons(onSinglePlayerClick: () -> Unit = {}) {
             iconRes = R.drawable.btn2,
             text = "Solo",
             modifier = Modifier
-                .weight(1f)
+                .weight(1f),
+            onClick = onSinglePlayerClick
         )
         Spacer(Modifier.width(12.dp))
         GameButton(

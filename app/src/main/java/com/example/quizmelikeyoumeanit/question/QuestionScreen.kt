@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -34,6 +35,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.quizmelikeyoumeanit.R
+import com.example.quizmelikeyoumeanit.question.components.AnswerItem
 import com.example.quizmelikeyoumeanit.question.model.QuestionModel
 import com.example.quizmelikeyoumeanit.question.model.QuestionUiState
 
@@ -165,7 +167,38 @@ fun QuestionScreen(
             )
         }
 
+        itemsIndexed(
+            listOf(
+                currentQuestion.answer_1?:"",
+                currentQuestion.answer_2?:"",
+                currentQuestion.answer_3?:"",
+                currentQuestion.answer_4?:""
+            )
+        ){index, answerText ->
+            val answerLetter = listOf("a", "b", "c", "d")[index]
+            val isCorrect = selectedAnswer!=null && answerLetter==currentQuestion.correctAnswer
+            val isWrong = selectedAnswer == answerLetter && !isCorrect
 
+            AnswerItem(
+                text=answerText,
+                isCorrect=isCorrect,
+                isWrong=isWrong,
+                isSelected = selectedAnswer != null
+            ) {
+                val updatedQuestion = state.questions.toMutableList()
+                val updateQuestion=
+                    updatedQuestion[state.currentIndex].copy(clickedAnswer = answerLetter)
+                updatedQuestion[state.currentIndex] = updateQuestion
+                val scoreToAdd=if(answerLetter==updateQuestion.correctAnswer) 5 else 0
+                state = state.copy(
+                    questions=updatedQuestion,
+                    score = state.score+scoreToAdd
+                )
+            }
+        }
+        item{
+            Spacer(Modifier.height(32.dp))
+        }
     }
 }
 
