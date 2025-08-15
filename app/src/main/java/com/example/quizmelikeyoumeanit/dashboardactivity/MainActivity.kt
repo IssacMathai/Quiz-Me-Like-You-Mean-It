@@ -8,6 +8,7 @@ import androidx.activity.compose.setContent
 import androidx.core.content.ContextCompat
 import com.example.quizmelikeyoumeanit.R
 import com.example.quizmelikeyoumeanit.dashboardactivity.screens.MainScreen
+import com.example.quizmelikeyoumeanit.leaderactivity.LeaderActivity
 import com.example.quizmelikeyoumeanit.questionactivity.QuestionActivity
 import com.example.quizmelikeyoumeanit.questionactivity.model.QuestionModel
 import java.util.ArrayList
@@ -16,7 +17,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.statusBarColor = ContextCompat.getColor(this, R.color.grey)
-        window.decorView.systemUiVisibility= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 
 
         setContent {
@@ -24,7 +25,9 @@ class MainActivity : ComponentActivity() {
                 val intent = Intent(this, QuestionActivity::class.java)
                 intent.putParcelableArrayListExtra("list", ArrayList(questionList()))
                 startActivity(intent)
-            }, onBoardClick = {})
+            }, onBoardClick = {
+                startActivity(Intent(this, LeaderActivity::class.java))
+            })
         }
     }
 
