@@ -47,7 +47,6 @@ fun MainScreen(
             Spacer(modifier = Modifier.height(32.dp))
             CategoryHeader()
             CategoryGrid()
-            Banner()
         }
         BottomNavigationBar(
             modifier = Modifier.align(Alignment.BottomCenter),

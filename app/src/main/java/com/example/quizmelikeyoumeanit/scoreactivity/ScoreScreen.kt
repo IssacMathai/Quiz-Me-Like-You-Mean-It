@@ -62,7 +62,7 @@ fun ScoreScreen(score: Int, onBackToMain: () -> Unit) {
                     containerColor = colorResource(R.color.orange),
                 ), shape = RoundedCornerShape(8.dp)
             ) {
-                Text(text = "Back to Main", color = Color.White)
+                Text(text = "Return Home", color = Color.White)
             }
         }
     }
